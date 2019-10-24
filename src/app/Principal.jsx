@@ -106,8 +106,8 @@ export default class Main extends Component{
         }
 
         return(<div>
-            <Typography variant='h4'>Sector:{this.state.circuito[this.state.actualCircuito]['nombre'].substr(0,guion + 1)}</Typography>
-            <Typography variant='h3'>{this.state.circuito[this.state.actualCircuito]['nombre'].substr(guion+1,3)}</Typography><br/>
+            <Typography variant='h4'>Sector:{this.state.circuito[actual]['nombre'].substr(guion !== this.state.circuito[actual]['nombre'].length?guion-1:0,guion !== this.state.circuito[actual]['nombre'].length?1:guion)}</Typography>
+            {guion !== this.state.circuito[actual]['nombre'].length? <Typography variant='h3'>Manguera:{this.state.circuito[actual]['nombre'].substr(guion+1,3)}</Typography>:null}<br/>
             <Typography variant='h4'>Restante:</Typography>
             <Typography variant='h1'> {tiempo}s</Typography>  <br/>
             <Fab onClick={
